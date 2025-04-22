@@ -1,0 +1,305 @@
+use_bpm 124
+use_synth :piano
+
+choir = sample
+
+play :fs3, amp: 0.5
+play :d4, amp: 0.5
+sleep 1
+
+play :fs3, amp: 1
+play :d4, amp: 1
+sleep 1
+
+play :fs3, amp: 1.5
+play :d4, amp: 1.5
+sleep 1
+
+play :fs3, amp: 2
+play :d4, amp: 2
+sleep 1
+
+play :fs3, amp: 2.5
+play :d4, amp: 2.5
+sleep 1
+
+play :fs3, amp: 3
+play :d4, amp: 3
+sleep 1
+
+play :fs3, amp: 3.5
+play :d4, amp: 3.5
+sleep 1
+
+play :fs3, amp: 4
+play :d4, amp: 4
+sleep 1
+
+
+
+live_loop :bass do
+  6.times do
+    play :fs3
+    play :d4
+    sleep 1
+    play :fs3
+    play :d4
+    sleep 1
+    play :fs3
+    play :d4
+    sleep 1
+    play :fs3
+    play :d4
+    sleep 1
+  end
+  stop
+end
+
+sleep 8
+
+
+live_loop :anthem do
+  4.times do
+    play :d4
+    play :fs4
+    sleep 0.5
+    play :fs4
+    play :a4
+    sleep 0.5
+    play :fs4
+    play :a4
+    sleep 0.5
+    play :a4
+    play :d5
+    sleep 0.5
+    play :a4
+    play :d5
+    sleep 0.5
+    play :d5
+    play :fs5
+    sleep 0.5
+    play :d5
+    play :fs5
+    sleep 0.5
+    play :fs5
+    play :a5
+    sleep 0.5
+  end
+  sample :ambi_dark_woosh, amp: 8
+  stop
+end
+sleep 18.4
+
+sample "C:/Users/alberto_sanchez/Downloads/choir.wav", amp: 6
+
+sleep 125
+
+#Custom Song 2
+use_bpm 127
+use_synth :piano
+
+# Function to play bass line
+define :play_bass do
+  5.times do
+    # Measure 1
+    play :g2; sleep 1
+    play :b2; sleep 0.5
+    play :d3; sleep 0.5
+    play :g2; sleep 1
+    play :b2; sleep 0.5
+    play :d3; sleep 0.5
+    # Measure 2
+    play :g2; sleep 1
+    play :c3; sleep 0.5
+    play :eb3; sleep 0.5
+    play :g2; sleep 1
+    play :c3; sleep 0.5
+    play :eb3; sleep 0.5
+  end
+end
+
+live_loop :bass do
+  play_bass
+  stop
+end
+
+sleep 8
+
+# Main melody
+2.times do
+  # Measure 1
+  play :b4; play :b3; sleep 0.25
+  play :d5, sustain: 3; play :d4, sustain: 3; sleep 1.75
+  play :r; sleep 2
+  # Measure 2
+  play :c5; play :c4; sleep 0.25
+  play :eb5, sustain: 3; play :eb4, sustain: 3; sleep 1.75
+  play :r; sleep 2
+  # Measure 3
+  play :d4; play :d5; sleep 0.25
+  play :f4, sustain: 3; play :f5, sustain: 3; sleep 1.75
+  play :eb4; play :eb5; sleep 1
+  play :f5; play :f4; sleep 0.5
+  play :eb5, sustain: 6; play :eb4, sustain: 6; sleep 0.5
+  # Measure 4
+  play :d5, sustain: 50; play :d4, sustain: 50; sleep 4
+end
+
+# Glissando
+use_bpm 127
+use_synth :piano
+
+live_loop :glissando1 do
+  notes = [:g2, :a2, :b2, :c3, :d3, :e3, :f3, :g3, :a3, :b3, :c4, :d4, :e4, :f4, :g4, :a4, :b4, :c5, :d5, :e5, :f5, :g5, :a5, :b5, :c6]
+  
+  notes.each do |note|
+    play note
+    sleep 0.125
+  end
+  
+  stop  # Stop the loop after one iteration
+end
+
+sleep 3
+# Samples and drums
+sample :drum_cymbal_hard, sustain: 76
+sleep 0.4
+sample "C:/Users/alberto_sanchez/Downloads/opening (COL) Option #3.wav", amp: 4.7
+sleep 85.6
+
+sample :bass_trance_c, sustain: 76, amp: 4.9
+sleep 6
+
+# Play bass part 2
+live_loop :bass do
+  8.times do
+    # Measure 1
+    play :g2; sleep 1
+    play :b2; sleep 0.5
+    play :d3; sleep 0.5
+    play :g2; sleep 1
+    play :b2; sleep 0.5
+    play :d3; sleep 0.5
+    # Measure 2
+    play :g2; sleep 1
+    play :c3; sleep 0.5
+    play :eb3; sleep 0.5
+    play :g2; sleep 1
+    play :c3; sleep 0.5
+    play :eb3; sleep 0.5
+  end
+  stop
+end
+
+# New melody
+live_loop :newnotes do
+  2.times do
+    play :g4; sleep 1
+    play :a4; sleep 0.5
+    play :bb4; sleep 0.5
+    play :d4, sustain: 2; sleep 2
+    # Measure 18
+    play :a4; sleep 1
+    play :a4; sleep 0.5
+    play :g4; sleep 0.5
+    play :bb4, sustain: 2; sleep 2
+    # Measure 19
+    play :g4; sleep 1
+    play :a4; sleep 0.5
+    play :bb4; sleep 0.5
+    play :d4, sustain: 2; sleep 2
+    # Measure 20
+    play :a4; sleep 1
+    play :a4; sleep 0.5
+    play :g4; sleep 0.5
+    play :g4, sustain: 2; sleep 2
+  end
+  stop
+end
+
+sleep 28.2
+
+# Final melody
+1.times do
+  sleep 2.5
+  # Measure 24
+  5.times do |i|
+    play :bb4; sleep 0.5
+  end
+  # Measure 25
+  play :a4; sleep 0.5
+  4.times do |i|
+    play :c5; sleep 0.5
+  end
+  # Measure 26
+  4.times do |i|
+    play :bb4; sleep 0.5
+  end
+  play :bb4, sustain: 2; sleep 2
+  
+  # Measure 27
+  5.times do |i|
+    play :c5; sleep 0.5
+  end
+  play :d5; sleep 0.5
+  play :eb5; sleep 0.5
+  sleep 0.25
+  # Measure 28
+  play :eb5; sleep 0.25
+  play :d5; sleep 0.5
+  sleep 1.75
+  3.times do |i|
+    play :bb4; sleep 0.5
+  end
+  
+  # Measure 29 (repeating similar to 25)
+  5.times do |i|
+    play :a4; sleep 0.5
+  end
+  play :c5; sleep 0.5
+  # Measure 30 (similar to 26)
+  4.times do |i|
+    play :bb4; sleep 0.5
+  end
+  play :bb4, sustain: 2; sleep 2
+  
+  # Measure 31 (similar to 27)
+  5.times do |i|
+    play :c5; sleep 0.5
+  end
+  play :d5; sleep 0.5
+  play :eb5; sleep 0.5
+  sleep 0.25
+  
+  # Measure 32 (similar to 28)
+  play :eb5; sleep 0.25
+  play :d5; sleep 0.5
+  sleep 1.75
+  play :c5; sleep 0.5
+  play :d5; sleep 0.5
+  play :eb5; sleep 0.5
+end
+
+# Final glissando
+use_bpm 127
+use_synth :piano
+
+live_loop :glissando2 do
+  notes = [:g2, :a2, :b2, :c3, :d3, :e3, :f3, :g3, :a3, :b3, :c4, :d4, :e4, :f4, :g4, :a4, :b4, :c5, :d5, :e5, :f5, :g5, :a5, :b5, :c6]
+  
+  notes.each do |note|
+    play note
+    sleep 0.125
+  end
+  
+  stop  # Stop the loop after one iteration
+end
+
+sleep 3
+
+# Last samples
+sample :drum_bass_hard, sustain: 76, amp: 4.7
+sleep 0.2
+sample "C:/Users/alberto_sanchez/Downloads/lyrics.wav", amp: 4.7
+sleep 82.4
+sample "C:/Users/alberto_sanchez/Downloads/trumpet outro.wav", amp: 4.7
